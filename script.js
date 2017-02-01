@@ -48,7 +48,6 @@ function converter(table){
 function fileExport(path, data){
 	try {
 		fs.write(path, data, "w");
-	    // fs.write(targetFile, this.getPageContent(), 'w');
 	} catch(err) {
 	    throw new Error(err);
 	}
