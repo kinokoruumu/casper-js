@@ -2,6 +2,14 @@ var casper = require("casper").create();
 var fs = require('fs');
 var url = "https://syllabus.doshisha.ac.jp/html/2016/21/121002000.html";
 
+/**
+ *		divide
+ * 		配列をnで指定した数に分割する
+ *
+ * 		@param { array } ary
+ * 		@param { int } n
+ * 		@return { array } results
+ */
 function divide(ary,n){
 	var idx = 0;
  	var results = [];
@@ -18,6 +26,12 @@ function divide(ary,n){
   	return results;
 }
 
+/**
+ *		getTableData
+ * 		評価基準が入ったテーブルデータを取得する
+ *
+ * 		@return { array } res
+ */
 function getTableData(){
 	var
 		res = null,
@@ -32,6 +46,13 @@ function getTableData(){
 	return res;
 }
 
+/**
+ *		converter
+ * 		不要な文字列を削除し、改行ごとに配列に格納する
+ *
+ * 		@param { array } table
+ * 		@return { array } table
+ */
 function converter(table){
 	table = table.textContent.trim();
 	table = table.replace(/\n+/g,"\n");
@@ -45,6 +66,13 @@ function converter(table){
 	return table;
 }
 
+/**
+ *		fileExport
+ * 		ファイルにデータを書き込む
+ *
+ * 		@param { string } path
+ * 		@param { array } data
+ */
 function fileExport(path, data){
 	try {
 		fs.write(path, data, "w");
